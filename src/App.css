@@ -1,38 +1,110 @@
 .App {
+  height: 100%;
+  width: 100%;
+  background: rgb(2,0,36);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 50%, rgba(17,17,80,1) 100%, rgba(0,83,181,1) 100%);
+}
+
+.App .header-wrap {
+  z-index: 1;
+}
+
+.App .header-wrap h1 {
+  text-align: center;
+  width: 100%;
+  font-size: 5em;
+  letter-spacing: .50em;
+  padding-top: 2em;
+  color: #fff;
+  margin-top: 0;
+}
+
+.App .start-game-wrap {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App .button-startg-game {
+  font-size: 1em;
+  padding: 1em 2em;
+  border-radius: 3px;
+  background-color: #efefef;
+  font-weight: 600;
+  border: 1px solid #999;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App .infinite {
+  width: 100%;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes animatedBackground {
   from {
-    transform: rotate(0deg);
+    background-position: 0 0;
   }
+/*use negative width if you want it to flow right to left else and positive for left to right*/
   to {
-    transform: rotate(360deg);
+    background-position: -10000px 1000px;
   }
+}
+
+@keyframes animatedBackground-reverse {
+  from {
+    background-position: 0 0;
+  }
+/*use negative width if you want it to flow right to left else and positive for left to right*/
+  to {
+    background-position: 10000px 300px;
+  }
+}
+
+.stars {
+  background: transparent url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: 0;
+  overflow: hidden;
+  height: 300px;
+  background-position: 0 0;
+
+  animation: animatedBackground 5000s linear infinite;
+}
+
+.stars-2 {
+  background: transparent url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: 0;
+  overflow: hidden;
+  height: 300px;
+  background-position: 300px -1000px;
+
+  animation: animatedBackground-reverse 10000s linear infinite;
+}
+
+.twinkling{
+  width: 10000px;
+  height: 300px;
+  background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+  background-size: 1000px 1000px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  overflow: hidden;
+  background-position: 0 0;
+
+  animation: animatedBackground 2000s cubic-bezier(0.31, 1.04, 1, 1) infinite;
 }
