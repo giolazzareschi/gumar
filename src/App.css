@@ -30,6 +30,7 @@
   background-color: #efefef;
   font-weight: 600;
   border: 1px solid #999;
+  cursor: pointer;
 }
 
 .App .infinite {
@@ -89,8 +90,6 @@
   overflow: hidden;
   height: 300px;
   background-position: 300px -1000px;
-
-  animation: animatedBackground-reverse 10000s linear infinite;
 }
 
 .twinkling{

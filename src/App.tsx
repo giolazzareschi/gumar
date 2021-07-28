@@ -1,26 +1,64 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import 'animate.css/animate.css';
 import './App.css';
+import Intro from './game/1_intro/Intro';
 
-class App extends React.Component {
-  componentDidMount() {
-    console.log('mounted');
+interface IProps {};
+
+interface IState {
+  fadeOut: boolean;
+  showIntro: boolean;
+};
+
+class App extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
+    super(props);
+
+    this.state = {
+      fadeOut: false,
+      showIntro: false,
+    };
+  }
+
+  fadeOut(event: MouseEvent<HTMLButtonElement>) : void {
+    event.preventDefault();
+
+    console.log(event.currentTarget.tagName);
+
+    this.setState({
+      fadeOut: true,
+    });
+
+    window.setTimeout(() : void => this.callNextScreen(), 1000);
+  }
+
+  callNextScreen() : void {
+    this.setState({
+      showIntro: true,
+    });
   }
 
   render() {
     return (
       <div className="App">
-        <div className="infinite">
+        <div className='infinite'>
           <div className="stars"></div>
           <div className="stars-2"></div>
           <div className="twinkling"></div>          
         </div>
-        <div className="animate__animated animate__fadeIn animate__delay-1s header-wrap">
-          <h1 className="animate__animated animate__bounce animate__delay-4s">Gumar</h1>
-        </div>
-        <div className="animate__animated animate__fadeIn animate__delay-3s start-game-wrap">
-          <button className="button-startg-game">Start Readgame</button>
-        </div>
+        {
+          (!this.state.showIntro &&
+          <div className={`animate__animated ${this.state.fadeOut && 'animate__fadeOut'}`}>
+            <div className="animate__animated animate__fadeIn animate__delay-1s header-wrap">
+              <h1 className="animate__animated animate__bounce animate__delay-2s">Gumar</h1>
+            </div>
+            <div className="animate__animated animate__fadeIn animate__delay-2s start-game-wrap">
+              <button className="button-startg-game" onClick={this.fadeOut.bind(this)}>Start Readgame</button>
+            </div>
+          </div>)
+          ||
+          (<Intro show={this.state.showIntro} />)
+        }
       </div>
     );
   }
