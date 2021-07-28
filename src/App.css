@@ -119,3 +119,8 @@
   background-size: auto 100%;
   z-index: 1;
 }
+
+.App .action-wrap {
+  z-index: 9;
+  position: relative;
+}

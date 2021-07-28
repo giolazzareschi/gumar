@@ -46,7 +46,7 @@ class App extends React.Component<IProps, IState> {
         </div>
         {
           (!this.state.showIntro &&
-          <div className={`animate__animated ${this.state.fadeOut && 'animate__fadeOut'}`}>
+          <div className={`animate__animated ${this.state.fadeOut && 'animate__fadeOut'} action-wrap`}>
             <div className="animate__animated animate__fadeIn animate__delay-1s header-wrap">
               <h1 className="animate__animated animate__bounce animate__delay-2s">Gumar</h1>
             </div>
