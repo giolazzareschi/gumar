@@ -23,8 +23,6 @@ class App extends React.Component<IProps, IState> {
   fadeOut(event: MouseEvent<HTMLButtonElement>) : void {
     event.preventDefault();
 
-    console.log(event.currentTarget.tagName);
-
     this.setState({
       fadeOut: true,
     });
