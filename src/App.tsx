@@ -57,6 +57,7 @@ class App extends React.Component<IProps, IState> {
           ||
           (<Intro show={this.state.showIntro} />)
         }
+        <div className="lower-background"></div>
       </div>
     );
   }

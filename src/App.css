@@ -1,12 +1,12 @@
 .App {
   height: 100%;
   width: 100%;
-  background: rgb(2,0,36);
-  background: linear-gradient(180deg, rgba(0,0,0,1) 50%, rgba(17,17,80,1) 100%, rgba(0,83,181,1) 100%);
+  background: rgb(0, 0, 0);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 30%, rgba(3, 27, 51, 1) 60%, rgba(3, 27, 51, 1) 100%);
 }
 
 .App .header-wrap {
-  z-index: 1;
+  z-index: 5;
 }
 
 .App .header-wrap h1 {
@@ -35,11 +35,11 @@
 
 .App .infinite {
   width: 100%;
-  height: 300px;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: 2;
 }
 
 @keyframes animatedBackground {
@@ -72,7 +72,7 @@
   display: block;
   z-index: 0;
   overflow: hidden;
-  height: 300px;
+  height: 70%;
   background-position: 0 0;
 
   animation: animatedBackground 5000s linear infinite;
@@ -88,13 +88,13 @@
   display: block;
   z-index: 0;
   overflow: hidden;
-  height: 300px;
+  height: 70%;
   background-position: 300px -1000px;
 }
 
 .twinkling{
   width: 10000px;
-  height: 300px;
+  height: 150px;
   background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
   background-size: 1000px 1000px;
   position: absolute;
@@ -106,4 +106,16 @@
   background-position: 0 0;
 
   animation: animatedBackground 2000s cubic-bezier(0.31, 1.04, 1, 1) infinite;
+}
+
+.App .lower-background {
+  position: absolute;
+  bottom: 0;
+  height: 300px;
+  width: 100%;
+  background-image: url(./images/homebg.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 100%;
+  z-index: 1;
 }
