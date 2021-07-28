@@ -42,27 +42,7 @@
   z-index: 2;
 }
 
-@keyframes animatedBackground {
-  from {
-    background-position: 0 0;
-  }
-/*use negative width if you want it to flow right to left else and positive for left to right*/
-  to {
-    background-position: -10000px 1000px;
-  }
-}
-
-@keyframes animatedBackground-reverse {
-  from {
-    background-position: 0 0;
-  }
-/*use negative width if you want it to flow right to left else and positive for left to right*/
-  to {
-    background-position: 10000px 300px;
-  }
-}
-
-.stars {
+.App .stars {
   background: transparent url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
   position: absolute;
   top: 0;
@@ -78,7 +58,7 @@
   animation: animatedBackground 5000s linear infinite;
 }
 
-.stars-2 {
+.App .stars-2 {
   background: transparent url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
   position: absolute;
   top: 0;
@@ -92,7 +72,7 @@
   background-position: 300px -1000px;
 }
 
-.twinkling{
+.App .twinkling{
   width: 10000px;
   height: 150px;
   background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
@@ -123,4 +103,22 @@
 .App .action-wrap {
   z-index: 9;
   position: relative;
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 1000px;
+  }
+}
+
+@keyframes animatedBackground-reverse {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 10000px 300px;
+  }
 }
