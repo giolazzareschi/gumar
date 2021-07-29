@@ -40,7 +40,7 @@ class Intro extends React.Component<IProps, IState> {
       title: 'Bem-vindo',
       paragraphs: this.getParagraphs(),
       nextButton: {
-        title: 'Prosseguir',
+        title: 'Seguinte',
         onClick: this.callNextScreen.bind(this),
       },
     };

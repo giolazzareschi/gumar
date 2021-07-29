@@ -1,5 +1,5 @@
 import React from 'react';
-import './Paragraph.css';
+import './NextButton.css';
 
 interface IProps {
   text: string;
@@ -17,7 +17,13 @@ class NextButton extends React.Component<IProps, IState> {
 
   render() {
     return (
-      <button onClick={this.props.onClick.bind(this)}>{this.props.text}</button>
+      <button className="NextButton" onClick={this.props.onClick.bind(this)}>
+        <svg width="180px" height="60px" viewBox="0 0 180 60" className="border">
+          <polyline points="179,1 179,59 1,59 1,1 179,1" className="bg-line" />
+          <polyline points="179,1 179,59 1,59 1,1 179,1" className="hl-line" />
+        </svg>
+        <span>{this.props.text}</span>
+      </button>
     );
   }
 }
