@@ -11,10 +11,3 @@
   bottom: 0;
   z-index: 9;
 }
-
-.Intro p {
-  padding: 0em 2em;
-  font-size: 1.25em;
-  letter-spacing: 0.15em;
-  font-family: 'Times New Roman', serif;
-}

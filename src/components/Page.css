@@ -1,0 +1,20 @@
+.Page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.Page .page-head {
+  flex: 0 0 auto;
+}
+
+.Page .page-body {
+  flex: 1;
+}
+
+.Page .page-actions {
+  flex: 0 0 auto;
+  padding: 1em;
+  text-align: center;
+}

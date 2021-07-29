@@ -41,5 +41,8 @@
       "last 1 safari version",
       "last 2 versions"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^7.31.0"
   }
 }

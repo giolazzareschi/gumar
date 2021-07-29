@@ -1,0 +1,9 @@
+.Paragraph {
+  position: relative;
+  padding: 0em 2em;
+  font-size: 1.25em;
+  letter-spacing: 0.15em;
+  line-height: 1.35em;
+  font-family: 'Zilla Slab', serif;
+  font-weight: 500;
+}
