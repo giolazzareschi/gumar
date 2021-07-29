@@ -2,12 +2,12 @@ import React from 'react';
 import Page from '../../components/Page';
 import './Intro.css';
 
-interface IProps {
-  show?: boolean;
-};
+interface IProps {};
 
 interface IState {
   paragraphs: string[];
+  showIntro: boolean;
+  fadeOutIntro: boolean;
 };
 
 class Intro extends React.Component<IProps, IState> {
@@ -16,6 +16,8 @@ class Intro extends React.Component<IProps, IState> {
 
     this.state = {
       paragraphs: [],
+      showIntro: true,
+      fadeOutIntro: false,
     };
   }
 
@@ -28,26 +30,53 @@ class Intro extends React.Component<IProps, IState> {
     return [
       "Gumar é um jogo-livro ou <i>read-game</i>. O objetivo é ler o livro, aproveitar a história e jogar. Conforme você ler o livro será necessário jogar o jogo para poder habilitar as novas páginas e capítulos.",
       "O livro está sendo escrito atualmente e não tem data para acabar. Enquanto existir a possibilidade de criar o proximo capítulo, Gumar continuará sendo escrito.",
+      "Ao apertar o botão abaixo se dará iniício a leitura-jogo.",
+      "Aproveite.",
     ];
   }
 
-  callNextScreen() : void {
-    console.log('dd');
+  callNextPage() : void {
+    this.setState({
+      fadeOutIntro: true,
+    });
+
+    window.setTimeout(() => {
+      this.setState({
+        showIntro: false,
+      });
+    }, 500);
   }
 
   render() {
-    const PageData = {
+    const IntroData = {
+      fadeIn: this.state.showIntro,
+      fadeOut: this.state.fadeOutIntro,
       title: 'Bem-vindo',
       paragraphs: this.getParagraphs(),
       nextButton: {
-        title: 'Seguinte',
-        onClick: this.callNextScreen.bind(this),
+        title: 'Iniciar',
+        onClick: this.callNextPage.bind(this),
+      },
+    };
+    
+    const PrefaceData = {
+      fadeIn: !this.state.showIntro,
+      fadeOut: this.state.showIntro,
+      title: 'Prefácio',
+      paragraphs: [],
+      nextButton: {
+        title: 'Iniciar',
+        onClick: this.callNextPage.bind(this),
       },
     };
 
     return (
-      <div className={`Intro animate__animated ${this.props.show && 'animate__fadeIn'}`}>
-        <Page data={PageData} />
+      <div className="Intro">
+        {
+          (this.state.showIntro && <Page data={IntroData} />)
+          ||
+          (<Page data={PrefaceData} />)
+        }
       </div>
     );
   }

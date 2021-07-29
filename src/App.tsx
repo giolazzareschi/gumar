@@ -44,8 +44,6 @@ class App extends React.Component<IProps, IState> {
           <div className="stars-2"></div>
           <div className="twinkling"></div>          
         </div>
-        <ul>
-        </ul>
         {
           (!this.state.showIntro &&
           <div className={`animate__animated ${this.state.fadeOut && 'animate__fadeOut'} action-wrap`}>
@@ -57,7 +55,7 @@ class App extends React.Component<IProps, IState> {
             </div>
           </div>)
           ||
-          (<Intro show={this.state.showIntro} />)
+          (<Intro />)
         }
         <div className="lower-background"></div>
       </div>

@@ -14,6 +14,8 @@ interface PageData {
   title: string;
   paragraphs: string[];
   nextButton: NextButtonData;
+  fadeIn?: boolean;
+  fadeOut?: boolean;
 }
 
 interface IProps {
@@ -29,13 +31,18 @@ class Page extends React.Component<IProps, IState> {
     this.state = {};
   }
 
+
+
   render() {
     const paragraphs = this.props.data.paragraphs.map((paragraph: string, index: number) => {
       return <Paragraph key={index} text={paragraph} />;
     });
 
+    const fadeIn = (this.props.data.fadeIn && 'animate__fadeIn') || '';
+    const fadeOut = (this.props.data.fadeOut && 'animate__fadeOut') || '';
+
     return (
-      <div className="Page">
+      <div className={`Page animate__animated ${fadeIn} ${fadeOut}`}>
         <div className="page-head">
           <Title text={this.props.data.title} />
         </div>
