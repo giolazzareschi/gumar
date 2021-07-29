@@ -35,6 +35,12 @@ class Intro extends React.Component<IProps, IState> {
     ];
   }
 
+  getPreface() : string[] {
+    return [
+      "A luz da lua fazia tanta luz naquela noite que e podia ver as sombras das árvores pela janela. O clima era ameno e o ar cheirava algo suave e calmo.",
+    ];
+  }
+
   callNextPage() : void {
     this.setState({
       fadeOutIntro: true,
@@ -63,7 +69,7 @@ class Intro extends React.Component<IProps, IState> {
       fadeIn: !this.state.showIntro,
       fadeOut: this.state.showIntro,
       title: 'Prefácio',
-      paragraphs: [],
+      paragraphs: this.getPreface(),
       nextButton: {
         title: 'Iniciar',
         onClick: this.callNextPage.bind(this),
